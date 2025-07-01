@@ -1,5 +1,8 @@
 console.log("Hello World");
 
+let humanScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
     const number = Math.floor(Math.random() * 3);
     if (number === 0) {
