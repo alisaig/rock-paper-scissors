@@ -12,3 +12,8 @@ function getComputerChoice() {
         return "scissors";
     }
 }
+
+function getHumanChoice() {
+    let choice = prompt("Choose the sign you want to play", "rock / paper /scissors");
+    return choice;
+}
