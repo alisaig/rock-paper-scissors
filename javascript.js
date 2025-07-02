@@ -17,7 +17,7 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    let choice = prompt("Choose the sign you want to play", "rock / paper /scissors");
+    let choice = prompt("Choose the sign you want to play", "Enter rock / paper / scissors");
     return choice.toLowerCase();
 }
 
@@ -41,7 +41,17 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+function playGame() {
+    const roundsNum = prompt("How many rounds would you like to play?", "Enter number of rounds");
 
-playRound(humanSelection, computerSelection);
+    for (let _ = 0; _ < roundsNum; _++) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+
+        playRound(humanSelection, computerSelection);
+    }
+
+    console.log(`The final scores are:\nYou: ${humanScore}\nComputer: ${computerScore}`);
+}
+
+playGame();
