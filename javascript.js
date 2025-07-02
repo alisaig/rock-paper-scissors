@@ -18,7 +18,7 @@ function getComputerChoice() {
 
 function getHumanChoice() {
     let choice = prompt("Choose the sign you want to play", "rock / paper /scissors");
-    return choice;
+    return choice.toLowerCase();
 }
 
 function playRound(humanChoice, computerChoice) {
@@ -26,37 +26,18 @@ function playRound(humanChoice, computerChoice) {
         console.log("It's a draw!");
     }
 
-    if (humanChoice === "rock") {
-        if (computerChoice === "paper") {
-            computerScore ++;
-            console.log("YOU LOSE! Too bad, Paper beats Rock");
-        }
-        if (computerChoice === "scissors") {
-            humanScore ++;
-            console.log("YOU WIN! Nice one, Rock beats Scissors");
-        }
+    else if (
+        (humanChoice === "rock" && computerChoice === "paper") ||
+        (humanChoice === "scissors" && computerChoice === "rock") ||
+        (humanChoice === "paper" && computerChoice === "scissors")
+    ) {
+        computerScore++;
+        console.log(`YOU LOSE! Too bad, ${computerChoice} beats ${humanChoice}`);
     }
 
-    if (humanChoice === "scissors") {
-        if (computerChoice === "rock") {
-            computerScore ++;
-            console.log("YOU LOSE! Too bad, Rock beats Scissors");
-        }
-        if (computerChoice === "paper") {
-            humanScore ++;
-            console.log("YOU WIN! Nice one, Scissors beat Paper");
-        }
-    }
-
-    if (humanChoice === "paper") {
-        if (computerChoice === "scissors") {
-            computerScore ++;
-            console.log("YOU LOSE! Too bad, Scissors beat Paper");
-        }
-        if (computerChoice === "rock") {
-            humanScore ++;
-            console.log("YOU WIN! Nice one, Paper beats Scissors");
-        }
+    else {
+        humanScore++;
+        console.log(`YOU WIN! Nice one, ${humanChoice} beats ${computerChoice}`);
     }
 }
 
